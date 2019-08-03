@@ -92,7 +92,7 @@ module.exports = {
          enabled: false,
          runs: 200
        },
-       evmVersion: "Petersburg"
+      //  evmVersion: "Petersburg"
       }
     }
   }
