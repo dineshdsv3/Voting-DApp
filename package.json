@@ -1,0 +1,26 @@
+{
+  "name": "samplevotingdapp",
+  "version": "1.0.0",
+  "description": "sample project",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dineshdsv3/Voting-DApp.git"
+  },
+  "author": "Dinesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dineshdsv3/Voting-DApp/issues"
+  },
+  "homepage": "https://github.com/dineshdsv3/Voting-DApp#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0"
+  }
+}
