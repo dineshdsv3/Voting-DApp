@@ -73,18 +73,33 @@ app = {
 
             var candidateResults = $('#candidatesResults');
             // candidateResults.empty();
+            
+            var candidateSelect = $('#candidatesSelect');
+            // candidateSelect.empty()
 
             var candidateTemplate =  `<tr><td>${candId}</td> <td>${candName}</td> <td>${candVote}</td></tr>`
-
             candidateResults.append(candidateTemplate);
+
+            var candidateSelectTemplate = `<option value="${candId}">${candName}</option>`
+            candidateSelect.append(candidateSelectTemplate);
+
+
         }
         app.setLoading(false);
     },
 
+    castVote : async () => {
+        var candidateID = $("#candidatesSelect").val();
+        console.log(candidateID);
+        $('button').hide();
+        await app.election.addVote(candidateID);
+        window.location.reload();
+    },
+    
     setLoading : (boolean) => {
         var loader = $('#loader');
         var content = $('#content');
-
+        
         app.loading = boolean;
         
         if(boolean) {
@@ -96,6 +111,19 @@ app = {
         }
         
     },
+
+    listenForEvennts : () => {
+        app.election.votedEvent({},{
+            fromBlock: 0,
+            toBlock: 'latest'
+          }).watch(function(error, event) {
+            console.log("event triggered", event)
+            // Reload when a new vote is recorded
+            App.render();
+          });
+    }
+
+
 }
 
 
